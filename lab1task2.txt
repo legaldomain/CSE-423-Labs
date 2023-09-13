@@ -1,0 +1,107 @@
+from OpenGL.GL import *
+from OpenGL.GLUT import *
+from OpenGL.GLU import *
+
+def drawHouse():
+    drawRoof()
+    drawBody()
+    drawDoor()
+    drawWindow()
+    drawKnob()
+
+def drawKnob():
+    glPointSize(5)
+    glColor3f(1.0, 0.0, 0.0)
+    glBegin(GL_POINTS)
+    glVertex2f(215, 40)
+
+    glEnd()
+
+
+def drawRoof():
+    glPointSize(10)
+    glBegin(GL_TRIANGLES)
+
+    glVertex2f(100, 200)
+    glVertex2f(300, 200)
+    glVertex2f(200, 300)
+
+    glEnd()
+
+def drawBody():
+
+    glBegin(GL_LINES)
+
+    glVertex2f(100, 0)
+    glVertex2f(300, 0)
+    glVertex2f(300, 0)
+    glVertex2f(300, 200)
+    glVertex2f(300, 200)
+    glVertex2f(100, 200)
+    glVertex2f(100, 200)
+    glVertex2f(100, 0)
+
+    glEnd()
+
+def drawDoor():
+    glBegin(GL_LINES)
+
+    glVertex2f(175, 0)
+    glVertex2f(225, 0)
+    glVertex2f(225, 0)
+    glVertex2f(225, 90)
+    glVertex2f(225, 90)
+    glVertex2f(175, 90)
+    glVertex2f(175, 90)
+    glVertex2f(175, 0)
+
+    glEnd()
+
+def drawWindow():
+    glColor3f(0.0, 1.0, 0.0)
+    glBegin(GL_LINES)
+
+    glVertex2f(120, 120)
+    glVertex2f(160, 120)
+    glVertex2f(160, 120)
+    glVertex2f(160, 180)
+    glVertex2f(160, 180)
+    glVertex2f(120, 180)
+    glVertex2f(120, 180)
+    glVertex2f(120, 120)
+    glVertex2f(240, 120)
+    glVertex2f(280, 120)
+    glVertex2f(280, 120)
+    glVertex2f(280, 180)
+    glVertex2f(280, 180)
+    glVertex2f(240, 180)
+    glVertex2f(240, 180)
+    glVertex2f(240, 120)
+
+    glEnd()
+
+def iterate():
+    glViewport(0, 0, 500, 500)
+    glMatrixMode(GL_PROJECTION)
+    glLoadIdentity()
+    glOrtho(0.0, 500, 0.0, 500, 0.0, 1.0)
+    glMatrixMode(GL_MODELVIEW)
+    glLoadIdentity()
+
+def showScreen():
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+    glLoadIdentity()
+    iterate()
+    glColor3f(0.0, 1.0, 1.0)
+    drawHouse()
+    glutSwapBuffers()
+
+glutInit()
+glutInitDisplayMode(GLUT_RGBA)
+glutInitWindowSize(500, 500)
+
+glutInitWindowPosition(0, 0)
+wind = glutCreateWindow(b"sadafs home")
+glutDisplayFunc(showScreen)
+glutIdleFunc(showScreen)
+glutMainLoop()

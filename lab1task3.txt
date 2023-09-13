@@ -1,0 +1,184 @@
+from OpenGL.GL import *
+from OpenGL.GLUT import *
+from OpenGL.GLU import *
+
+
+# 20101537
+
+def draw_Lines2():
+    glPointSize(10)
+    glBegin(GL_LINES)
+
+    glColor3f(0.5, 0.0, 1.0)
+    glVertex2f(10, 500)  # pixel show korbe
+    glVertex2f(60, 500)
+
+    glVertex2f(60, 500)
+    glVertex2f(60, 450)
+
+    glVertex2f(60, 450)
+    glVertex2f(10, 450)
+
+    glVertex2f(10, 450)
+    glVertex2f(10, 400)
+
+    glVertex2f(10, 400)
+    glVertex2f(60, 400)
+
+    glEnd()
+
+
+def draw_0():
+    glPointSize(10)
+    glBegin(GL_LINES)
+    glColor3f(0.0, 1.0, 0.0)
+
+    glVertex2f(70, 500)
+    glVertex2f(120, 500)
+
+    glVertex2f(120, 500)
+    glVertex2f(120, 400)
+
+    glVertex2f(120, 400)
+    glVertex2f(70, 400)
+    # jekhane show korbe pixel
+    glVertex2f(70, 500)
+    glVertex2f(70, 400)
+
+    glEnd()
+
+
+def draw_Line1f():
+    glPointSize(10)
+    glBegin(GL_LINES)
+
+    glColor3f(1.0, 0.0, 0.5)
+    glVertex2f(150, 500)  # jekhane show korbe pixel
+    glVertex2f(150, 400)
+
+    glEnd()
+
+
+def draw_0_2():
+    glPointSize(10)
+    glBegin(GL_LINES)
+
+    glColor3f(1.0, 0.0, 1.0)
+    glVertex2f(180, 500)
+    glVertex2f(230, 500)
+
+    glVertex2f(230, 400)
+    glVertex2f(230, 500)
+
+    glVertex2f(180, 400)
+    glVertex2f(230, 400)
+
+    glVertex2f(180, 500)
+    glVertex2f(180, 400)
+
+    glEnd()
+
+
+
+
+
+def draw_Lines1():
+    glPointSize(10)
+    glBegin(GL_LINES)
+
+    glColor3f(1.0, 1.0, 0.0)
+    glVertex2f(260, 500)  # jekhane show korbe pixel
+    glVertex2f(260, 400)
+
+    glEnd()
+
+
+def draw_Lines5():
+    glPointSize(10)
+    glBegin(GL_LINES)
+
+    glColor3f(0.0, 1.0, 1.0)
+    glVertex2f(290, 500)  # jekhane show korbe pixel
+    glVertex2f(340, 500)
+
+    glVertex2f(290, 500)
+    glVertex2f(290, 450)
+
+    glVertex2f(290, 450)
+    glVertex2f(340, 450)
+
+    glVertex2f(340, 450)
+    glVertex2f(340, 400)
+
+    glVertex2f(340, 400)
+    glVertex2f(290, 400)
+
+    glEnd()
+
+
+def draw_3():
+    glPointSize(10)
+    glBegin(GL_LINES)
+
+    glColor3f(1.0, 1.0, 1.0)
+    glVertex2f(370, 500)  # jekhane show korbe pixel
+    glVertex2f(420, 500)
+
+    glVertex2f(420, 500)
+    glVertex2f(420, 400)
+
+    glVertex2f(370, 450)
+    glVertex2f(420, 450)
+
+    glVertex2f(420, 400)
+    glVertex2f(370, 400)
+
+    glEnd()
+
+
+def draw_Lines7():
+    glPointSize(10)
+    glBegin(GL_LINES)
+
+    glColor3f(1.0, 0.5, 0.5)
+    glVertex2f(460, 500)  # jekhane show korbe pixel
+    glVertex2f(510, 500)
+
+    glVertex2f(510, 500)
+    glVertex2f(460, 400)
+
+    glEnd()
+
+
+def iterate():
+    glViewport(0, 0, 1000, 1000)
+    glMatrixMode(GL_PROJECTION)
+    glLoadIdentity()
+    glOrtho(0.0, 1000, 0.0, 1000, 0.0, 1.0)
+    glMatrixMode(GL_MODELVIEW)
+    glLoadIdentity()
+
+
+def showScreen():
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+    glLoadIdentity()
+    iterate()
+    glColor3f(1.0, 1.0, 0.0)  #RGB
+    #method calls
+    draw_Lines2()
+    draw_0()
+    draw_Line1f()
+    draw_0_2()
+    draw_Lines1()
+    draw_Lines5()
+    draw_3()
+    draw_Lines7()
+    glutSwapBuffers()
+
+glutInit()
+glutInitDisplayMode(GLUT_RGBA)
+glutInitWindowSize(700, 700)
+glutInitWindowPosition(0, 0)
+wind = glutCreateWindow(b"nijer roll number")
+glutDisplayFunc(showScreen)
+glutMainLoop()
